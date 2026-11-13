@@ -1,0 +1,430 @@
+﻿{
+    "trustMetrics":  [
+                         {
+                             "num":  "5.0★",
+                             "label":  "Client Rating"
+                         },
+                         {
+                             "num":  "+40%",
+                             "label":  "Avg. Retention"
+                         },
+                         {
+                             "num":  "10M+",
+                             "label":  "Views Generated"
+                         },
+                         {
+                             "num":  "0",
+                             "label":  "Missed Deadlines"
+                         }
+                     ],
+    "featuredReviews":  [
+                            {
+                                "rating":  5,
+                                "avatar":  "images/PLClzPm0RNYQo59sF2UKdtWQ.png",
+                                "metric":  "+120K Views",
+                                "quote":  "Sojol\u0027s edits skyrocketed our average watch duration by over 40%. The pacing and sound design are unmatched.",
+                                "author":  "Vonix",
+                                "role":  "YouTube Creator â€¢ 137K Subs",
+                                "name":  "Vonix",
+                                "stars":  "5"
+                            },
+                            {
+                                "rating":  5,
+                                "role":  "Content Partner â€¢ 2.85M Subs",
+                                "metric":  "2.85M Audience",
+                                "quote":  "Absolute professional. Zero missed deadlines, crisp animations, and understands creator retention better than anyone.",
+                                "author":  "MYSTIC7",
+                                "stars":  "5",
+                                "name":  "MYSTIC7",
+                                "avatar":  "images/KMzE3hTUTcaKIM5VJH6dLhFbw1g.jpg"
+                            },
+                            {
+                                "rating":  5,
+                                "avatar":  "images/vEqWeYjMZ0rYX9Nti38xLWLzXss.png",
+                                "metric":  "10x Inbound Growth",
+                                "quote":  "Working with Sojol is effortless. Videos convert directly into inbound client inquiries. Highly recommended!",
+                                "author":  "Jack Roberts",
+                                "role":  "Creator \u0026 Founder â€¢ 170K Subs",
+                                "name":  "Jack Roberts",
+                                "stars":  "5"
+                            }
+                        ],
+    "branding":  {
+                     "instagramUrl":  "https://instagram.com/sojolvisuals",
+                     "bookingUrl":  "https://cal.com/sojol-visuals-bbhyyc/30min?overlayCalendar=true\u0026date=2026-11-06",
+                     "metaDescription":  "Professional video editor helping brands and creators craft high-retention content with story, motion, and visual clarity.",
+                     "brandStyle":  "purple-glow",
+                     "siteTitle":  "Sojol Visuals — Video Editor \u0026 Visual Storyteller",
+                     "dmUrl":  "https://x.com/sojolvisuals",
+                     "defaultTheme":  "dark",
+                     "brandName":  "Sojol Visuals",
+                     "brandLogo":  "",
+                     "brandFont":  "Syne",
+                     "brandSub":  "Video Editor",
+                     "logoImage":  "",
+                     "ownerName":  "Sojol"
+                 },
+    "hero":  {
+                 "ctaText":  "Send me a DM",
+                 "ctaLink":  "https://x.com/sojolvisuals",
+                 "headlineLine2":  "Actually Watch",
+                 "igCtaLink":  "https://instagram.com/sojolvisuals",
+                 "subtitle":  "Happy clients. 0 missed deadlines",
+                 "bookBtnLink":  "https://cal.com/sojol-visuals-bbhyyc/30min?overlayCalendar=true\u0026date=2026-11-06",
+                 "headlineLine1":  "Making Content People",
+                 "badge":  "1 Spot Left",
+                 "bookBtnText":  "Book a Call"
+             },
+    "clientMarqueeTitle":  "Satisfied Clients",
+    "clients":  [
+                    {
+                        "name":  "Vonix",
+                        "stats":  "137K Subscribers",
+                        "avatar":  "images/PLClzPm0RNYQo59sF2UKdtWQ.png",
+                        "link":  "https://www.youtube.com/@Vonix"
+                    },
+                    {
+                        "name":  "Suhit Amin",
+                        "stats":  "17K Subscribers",
+                        "avatar":  "images/D4LjkhfjqpQuPnCC60zQ3VuQ8uQ.png",
+                        "link":  "https://www.youtube.com/@suhitamin"
+                    },
+                    {
+                        "name":  "Secured Picks",
+                        "stats":  "37K Subscribers",
+                        "avatar":  "images/31eeZbNBxXHI11T2NbZZU3vHo.png",
+                        "link":  "https://www.youtube.com/@SecuredTyson"
+                    },
+                    {
+                        "name":  "MYSTIC7",
+                        "stats":  "2.85M Subscribers",
+                        "avatar":  "images/KMzE3hTUTcaKIM5VJH6dLhFbw1g.jpg",
+                        "link":  "https://www.youtube.com/@MYSTIC7"
+                    },
+                    {
+                        "name":  "The Numbers Game",
+                        "stats":  "437K followers",
+                        "avatar":  "images/dWoI3KgGK8v8AjxITB9w0eE345E.jpg",
+                        "link":  "https://www.instagram.com/thenumbersgame1/reels/"
+                    },
+                    {
+                        "name":  "Tuan Le",
+                        "stats":  "10k Subscribers",
+                        "avatar":  "images/dWoI3KgGK8v8AjxITB9w0eE345E.jpg",
+                        "link":  "https://www.youtube.com/@tuanle"
+                    },
+                    {
+                        "name":  "Moe Hayek",
+                        "stats":  "22.8K Followers",
+                        "avatar":  "images/eDbMOfgOTCXVkIfwFFC3MdVSbc.png",
+                        "link":  "https://www.instagram.com/moe.hayek/reels/"
+                    },
+                    {
+                        "name":  "Jack Roberts",
+                        "stats":  "170k Subscribers",
+                        "avatar":  "images/vEqWeYjMZ0rYX9Nti38xLWLzXss.png",
+                        "link":  "https://www.youtube.com/@itssssss_jack"
+                    },
+                    {
+                        "name":  "Max Sturtevant",
+                        "stats":  "30k Subscribers",
+                        "avatar":  "images/z92HGy527gNFKXQM4mWemI4tEyo.jpg",
+                        "link":  "https://www.youtube.com/@maxwellcopy"
+                    },
+                    {
+                        "name":  "brandon bryant",
+                        "stats":  "30k Subscribers",
+                        "avatar":  "images/XhpQuHJiCRzra5jVpPVyYAVzKyw.png",
+                        "link":  "https://www.youtube.com/@Wallstreetpaper"
+                    },
+                    {
+                        "name":  "Dippid",
+                        "stats":  "1M Subscribers",
+                        "avatar":  "images/HEl217GhgE4ypDi0vlj7UbPdtKY.png",
+                        "link":  "https://www.youtube.com/@Dippidd"
+                    },
+                    {
+                        "name":  "Mia",
+                        "stats":  "100 Subscribers",
+                        "avatar":  "images/oYAse0XuHwMt5Ya79NLHljjtI.jpg",
+                        "link":  "https://www.youtube.com/@MiaaTran"
+                    },
+                    {
+                        "name":  "Steven Baterina",
+                        "stats":  "6.64k Subscribers",
+                        "avatar":  "images/U3NSG5ZI9LkUT6kixKY2NQ5Vw0.jpg",
+                        "link":  "https://www.youtube.com/@stevenbaterina"
+                    },
+                    {
+                        "name":  "zaidi.io",
+                        "stats":  "2K Subscribers",
+                        "avatar":  "images/cy2Z06IqyD2L5OTWPK13RRXIwk.png",
+                        "link":  "https://zaidi.io"
+                    },
+                    {
+                        "name":  "Sathvik Soma",
+                        "stats":  "500 Followers",
+                        "avatar":  "images/K1YucWP62CnsEfaCKIFQymJWgdI.jpg",
+                        "link":  "https://twitter.com/SathvikSoma"
+                    }
+                ],
+    "longFormVideos":  [
+                           {
+                               "id":  "KkK-Y7GiQ2o",
+                               "title":  "High-Retention Documentary Edit",
+                               "creator":  "Sojol"
+                           },
+                           {
+                               "id":  "LhLhKW0IN8U",
+                               "title":  "Cinematic Commercial Cut",
+                               "creator":  "Sojol"
+                           },
+                           {
+                               "id":  "AO2VJ1eHi9c",
+                               "title":  "Viral YouTube Retention Master",
+                               "creator":  "Vonix"
+                           },
+                           {
+                               "id":  "E9htIWGc1Dk",
+                               "title":  "Story-Driven Podcast Episode",
+                               "creator":  "Vonix"
+                           },
+                           {
+                               "id":  "onxqELLUp3M",
+                               "title":  "Fast-Paced Gaming Showcase",
+                               "creator":  "MYSTIC7"
+                           },
+                           {
+                               "id":  "r8xsB9VCzAY",
+                               "title":  "Brand Storytelling \u0026 Color Grading",
+                               "creator":  "Jack Roberts"
+                           },
+                           {
+                               "id":  "1Rg9N6AC9Cs",
+                               "title":  "Dynamic Motion Graphics Edit",
+                               "creator":  "Sojol"
+                           },
+                           {
+                               "id":  "9HG3AhWVpbg",
+                               "title":  "Creator Studio Deep-Dive",
+                               "creator":  "Vonix"
+                           },
+                           {
+                               "id":  "zE_o7a4yMXU",
+                               "title":  "Advanced Sound Design Showcase",
+                               "creator":  "Sojol"
+                           },
+                           {
+                               "id":  "w67luwKjfZI",
+                               "title":  "Pacing \u0026 Micro-Hook Strategy",
+                               "creator":  "MYSTIC7"
+                           },
+                           {
+                               "id":  "KkK-Y7GiQ2o",
+                               "title":  "High-Conversion SaaS Explainer",
+                               "creator":  "Sojol"
+                           },
+                           {
+                               "id":  "LhLhKW0IN8U",
+                               "title":  "Cinematic Narrative VLOG",
+                               "creator":  "Vonix"
+                           }
+                       ],
+    "shorts":  [
+                   {
+                       "id":  "bFHODawhg80",
+                       "title":  "Viral Hook Breakdown",
+                       "creator":  "Sojol"
+                   },
+                   {
+                       "id":  "yGkIGTR7Z7A",
+                       "title":  "1M+ Views Retention Hack",
+                       "creator":  "Sojol"
+                   },
+                   {
+                       "id":  "DKbYtGzPr2A",
+                       "title":  "Sound Design Before \u0026 After",
+                       "creator":  "Vonix"
+                   },
+                   {
+                       "id":  "ft_YAva3ZeM",
+                       "title":  "Motion Graphics Micro-Pacing",
+                       "creator":  "Jack Roberts"
+                   },
+                   {
+                       "id":  "nUZ31Y55KsE",
+                       "title":  "Color Grading Transformation",
+                       "creator":  "Sojol"
+                   },
+                   {
+                       "id":  "87Od2doWiLg",
+                       "title":  "Creator Retention Blueprint",
+                       "creator":  "MYSTIC7"
+                   },
+                   {
+                       "id":  "bFHODawhg80",
+                       "title":  "Pacing Secrets for Shorts",
+                       "creator":  "Vonix"
+                   },
+                   {
+                       "id":  "yGkIGTR7Z7A",
+                       "title":  "Viral Reel Story Framework",
+                       "creator":  "Sojol"
+                   },
+                   {
+                       "id":  "DKbYtGzPr2A",
+                       "title":  "Instant Client Conversion Reel",
+                       "creator":  "Jack Roberts"
+                   },
+                   {
+                       "id":  "ft_YAva3ZeM",
+                       "title":  "Speed Ramping \u0026 SFX Flow",
+                       "creator":  "Sojol"
+                   },
+                   {
+                       "id":  "nUZ31Y55KsE",
+                       "title":  "Visual Hook in 0.5 Seconds",
+                       "creator":  "MYSTIC7"
+                   },
+                   {
+                       "id":  "87Od2doWiLg",
+                       "title":  "Retention Graph Multiplier",
+                       "creator":  "Vonix"
+                   }
+               ],
+    "about":  {
+                  "image":  "images/sojol_about.png",
+                  "bio2":  "I started editing at 16 on my own YouTube channels. What began as a hobby slowly turned into real, professional work.",
+                  "stats":  [
+                                {
+                                    "number":  "104+",
+                                    "label":  "Videos Worked On"
+                                },
+                                {
+                                    "number":  "15+",
+                                    "label":  "Happy Customers"
+                                },
+                                {
+                                    "number":  "2+",
+                                    "label":  "Years Experience"
+                                },
+                                {
+                                    "number":  "1M+",
+                                    "label":  "Views Generated"
+                                }
+                            ],
+                  "heading":  "Hi, I\u0027m Sojol",
+                  "bio1":  "From simple edits to long-form, short-form, reels, showreels, UGC videos, 2D/3D animations and more.",
+                  "badge":  "Always learning. Improving daily.",
+                  "tagline":  "Behind the scenes"
+              },
+    "whyWorkWithMe":  [
+                          {
+                              "desc":  "Most editors focus on effects. I focus on design, layout, and clarity.",
+                              "title":  "Better designs"
+                          },
+                          {
+                              "desc":  "You won’t have to chase updates. I respect deadlines and deliver on time.",
+                              "title":  "Fast Turnarounds"
+                          },
+                          {
+                              "desc":  "Clear updates, quick replies, and no confusion about the project status.",
+                              "title":  "Easy Communication"
+                          }
+                      ],
+    "additionalWorks":  [
+                            {
+                                "id":  "zE_o7a4yMXU",
+                                "title":  "Advanced Sound Design Showcase",
+                                "creator":  "Sojol"
+                            },
+                            {
+                                "id":  "w67luwKjfZI",
+                                "title":  "Pacing \u0026 Micro-Hook Strategy",
+                                "creator":  "Sojol"
+                            },
+                            {
+                                "id":  "A0SuMUGNgO8",
+                                "title":  "High-Impact Creator Showcase",
+                                "creator":  "Vonix"
+                            },
+                            {
+                                "id":  "dRFnEQrvjQM",
+                                "title":  "Cinematic Storytelling \u0026 Retention",
+                                "creator":  "MYSTIC7"
+                            },
+                            {
+                                "id":  "HOLpFxg_hpI",
+                                "title":  "Motion Graphics \u0026 Retention Cut",
+                                "creator":  "Jack Roberts"
+                            },
+                            {
+                                "id":  "XPDrtl_OHSY",
+                                "title":  "Viral Brand Commercial Cut",
+                                "creator":  "Sojol"
+                            }
+                        ],
+    "testimonials":  [
+                         "images/b2V7kLUM0FuMhAGlPbK1H3Hcs.png",
+                         "images/cT0DZbNFxh0cu7DIZlYX4xpTiQI.png",
+                         "images/7gpO6eIEPKDhXtVgplHQ5pWKMWg.png",
+                         "images/p99HwEV5ltJYPo4jo58esI0go0.png",
+                         "images/VBv5GwYe3o3POv7mV6KzBFBv9Z8.png",
+                         "images/TPb0vl1qDSyiGBaShkvA6aPPb9s.png",
+                         "images/LHr110MhGVY276tov4ccHrV0.png",
+                         "images/kSWAVYSPJ8dwMfpaMfjwcwgj7k.png",
+                         "images/ku0TRvvzmKvsI2g8yoK4J2EKOo.png",
+                         "images/hkMAa0qxPVmDqR86DKILluKUM.png",
+                         "images/sIsmr8ubHVwfdqDfRrZXqBm5hA.png",
+                         "images/jAbYnsNy3ncXe7i6LcNtnyZ5s0.png",
+                         "images/GTdIa52Q6Q64Z5DY58HAKjqSHE.png",
+                         "images/9sTsLUl9YmjNKpATPkweFSxz9E.png",
+                         "images/IvovVrcRqpjyc6y6DPhLcK1FzE.png"
+                     ],
+    "faqs":  [
+                 {
+                     "question":  "What software and tools do you use for editing?",
+                     "answer":  "I primarily edit using Adobe Premiere Pro, After Effects, and DaVinci Resolve for industry-grade color grading and audio engineering. I also use Photoshop and Blender for custom visual elements and high-CTR thumbnail designs."
+                 },
+                 {
+                     "question":  "How do we share footage and communicate during the project?",
+                     "answer":  "You can send footage through Google Drive, Dropbox, Frame.io, or WeTransfer. For day-to-day updates and communication, we can connect on Discord, WhatsApp, Slack, or X (Twitter) DM—whatever works best for your workflow."
+                 },
+                 {
+                     "question":  "What is your typical turnaround time?",
+                     "answer":  "For Short-form content (Reels, TikToks, Shorts), delivery is usually within 24 to 48 hours. For Long-form YouTube edits, turnaround is typically 3 to 5 days depending on the project complexity and depth of motion graphics required."
+                 },
+                 {
+                     "question":  "How do revisions work?",
+                     "answer":  "Every project includes revisions until you are 100% satisfied with the outcome. My priority is ensuring the final video matches your vision and achieves maximum viewer retention."
+                 },
+                 {
+                     "question":  "Can you edit both long-form YouTube videos and short-form reels?",
+                     "answer":  "Yes! I produce both retention-engineered long-form YouTube videos and high-impact vertical short-form reels engineered specifically for viral reach across Instagram, TikTok, and YouTube Shorts."
+                 },
+                 {
+                     "question":  "What are your pricing and payment options?",
+                     "answer":  "I offer both per-project pricing and discounted monthly retainer packages for creators who need consistent weekly content. Payments can be handled smoothly via PayPal, Payoneer, Wise, Bank Transfer, or Crypto, or Crypto."
+                 }
+             ],
+    "footer":  {
+                   "twitter":  "https://x.com/sojolvisuals",
+                   "dmBtnText":  "Send me a DM",
+                   "copyright":  "© 2025 Sojol Visuals. All rights reserved.",
+                   "titleLine2":  "videos better?",
+                   "cal":  "https://cal.com/sojolvisuals/30min",
+                   "dmBtnLink":  "https://x.com/sojolvisuals",
+                   "subtitle":  "Clean design, clear communication, and reliable delivery.",
+                   "instagram":  "https://instagram.com/sojolvisuals",
+                   "bookBtnText":  "Book a Call",
+                   "titleLine1":  "Ready to make your",
+                   "youtube":  "https://www.youtube.com",
+                   "bookBtnLink":  "https://cal.com/sojolvisuals/30min",
+                   "email":  "sojolvisuals@gmail.com"
+               },
+    "testimonialsHeader":  {
+                               "subtitle":  "Real feedback and chat reactions from creators, founders, and content partners.",
+                               "badge":  "Client Love",
+                               "heading":  "Happy and Satisfied Clients"
+                           }
+}

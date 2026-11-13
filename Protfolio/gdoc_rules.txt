@@ -1,0 +1,578 @@
+﻿VIDEO SPLITTING RULES
+সহজ বাংলা গাইড • Annotator & QA Team
+মূল লক্ষ্য: প্রতিটি ক্লিপে একটি সম্পূর্ণ, স্পষ্ট এবং ধারাবাহিক প্রধান কাজ থাকবে।
+১. সবচেয়ে গুরুত্বপূর্ণ নিয়ম: One Clip = One Action
+ভিডিওকে এমন ছোট ছোট ক্লিপে ভাগ করতে হবে, যাতে প্রতিটি ক্লিপে একটি মাত্র প্রধান কাজ থাকে। কাজ বদলালে নতুন Segment তৈরি করতে হবে। তবে প্রতিটি ছোট আঙুলের নড়াচড়া বা একই কাজের স্বাভাবিক পুনরাবৃত্তি আলাদা করবেন না।
+* Pick up the cup → আলাদা Segment
+* Cup ধরে হাঁটা → আলাদা Segment
+* Cup নামিয়ে রাখা → আলাদা Segment
+* সবজি ধোয়া → আলাদা Segment; এরপর faucet বন্ধ করা → নতুন Segment
+* একটানা টেবিল মোছা → সাধারণত পুরো ধারাবাহিক কাজ এক Segment
+২. কখন নতুন Segment কাটতে হবে?
+* Action বদলালে: সবজি তোলা → ধোয়া; ধোয়া → faucet বন্ধ করা।
+* Object বদলালে: কাপ নিয়ে কাজ শেষ করে কাপড় দিয়ে কাজ শুরু করা।
+* Operating hand বদলালে এবং কাজটি একই ধারাবাহিক প্রক্রিয়ার অংশ না হলে।
+* একই হাত এক Segment-এ এক ধরনের কাজ করার পর অন্য ধরনের কাজ শুরু করলে। উদাহরণ: টেপ লাগানো → টেপ মসৃণ করা = দুই Segment।
+* স্পষ্ট state-change হলে: বস্তু তোলা/নামানো, দরজা বা cabinet খোলা/বন্ধ করা, faucet চালু/বন্ধ করা।
+* একই ধরনের sweeping/mopping Segment ১৫ সেকেন্ড বা তার বেশি হলে, নির্দিষ্ট পরিস্থিতি অনুযায়ী ভাগ করুন।
+* একটি কাজ ১০ সেকেন্ডের বেশি হলে সর্বোচ্চ ১০ সেকেন্ডের মধ্যে ভাগ করুন; সম্ভব হলে natural pause-এ কাটুন।
+৩. কখন একই Segment রাখা যাবে?
+* একই হাত একই কাজ ধারাবাহিকভাবে করছে এবং কাজ/বস্তু/প্রক্রিয়ায় উল্লেখযোগ্য পরিবর্তন নেই।
+* দুই হাত একই সময়ে সমন্বয় করে একটি কাজ করছে। উদাহরণ: বাম হাতে cabinet খোলা এবং ডান হাতে bowl বের করা।
+* একই কাজের স্বাভাবিক ছোট ছোট নড়াচড়া আলাদা করবেন না। যেমন bun-এর ভাঁজ চেপে তৈরি করার পুরো প্রক্রিয়া এক Segment হতে পারে।
+* হাত sink/cabinet/drawer-এর ভেতরে অল্প সময়ের জন্য আড়াল হলেও কাজটি ধারাবাহিক এবং উদ্দেশ্য পরিষ্কার থাকলে Segment রাখা যায়।
+৪. হাঁটা, খাওয়া-দাওয়া ও ইলেকট্রনিক ডিভাইস
+* হাতে কোনো জিনিস ধরে হাঁটলে, হাঁটার কাজটি একটি Segment করুন।
+* হাতে কিছু না নিয়ে হাঁটলে Segment তৈরি করবেন না; ফাঁকা রাখুন।
+* খাবার/পানীয় তোলা এবং নামিয়ে রাখার জন্য আলাদা Segment তৈরি করুন, যদি হাত দৃশ্যমান থাকে।
+* খাওয়া বা পান করার কাজের জন্য Segment তৈরি করবেন না।
+* ফোন ব্যবহার, ফোন দিয়ে ভিডিও করা বা laptop-এ টাইপ করা—এসবের জন্য আলাদা Segment তৈরি করবেন না।
+* কাচের পেছনে থাকা হাতের জন্য Segment তৈরি করবেন না।
+৫. হাত দেখা ও ক্লিপের শুরু-শেষ
+* প্রতিটি Segment-এর প্রথম ও শেষ ফ্রেমে কাজ করা হাতের কবজি (wrist) থেকে ওপরের অংশ দৃশ্যমান থাকতে হবে।
+* দুই হাতের কাজ হলে অন্তত একটি হাত কবজি থেকে ওপর পর্যন্ত দৃশ্যমান থাকলেই যথেষ্ট।
+* হাত ক্লিপের অন্তত ৯০% সময় দৃশ্যমান থাকা উচিত।
+* হাত একটানা ১ সেকেন্ড বা তার বেশি অদৃশ্য থাকলে, অথবা ক্লিপের ২০%-এর বেশি সময় অদৃশ্য থাকলে সেই Segment তৈরি করবেন না।
+* কাজ শেষ হওয়ার পর মাথা/ক্যামেরা উল্লেখযোগ্যভাবে কাঁপতে শুরু করলে, কাঁপুনি শুরুর আগেই Segment শেষ করুন।
+গুরুত্বপূর্ণ নোট: মূল নির্দেশিকার অন্য একটি অংশে ১.৫ সেকেন্ড/৩০% বলা হয়েছে, কিন্তু Mandatory Golden Rules-এ আরও কঠোর ১ সেকেন্ড/২০% সীমা দেওয়া আছে। নিরাপদ QA-এর জন্য এখানে কঠোর নিয়ম—১ সেকেন্ড/২০%—অনুসরণ করুন, যদি না Project Lead নতুন করে নিশ্চিত করেন।
+৬. ০.৫ সেকেন্ডের কম দ্রুত কাজ
+কোনো কাজ ০.৫ সেকেন্ডের কম হলে একা Segment করলে খুব ছোট হয়ে যেতে পারে। এমন ক্ষেত্রে প্রয়োজন হলে আগের বা পরের কাজের সঙ্গে যুক্ত করা যায়। তবে সাধারণ নিয়ম হলো—সম্ভব হলে কাজটি আলাদা কাটুন। ভিন্ন বস্তু নিয়ে পুনরাবৃত্ত কাজ হলে আলাদা Segment করুন; ০.৫ সেকেন্ডের কমের ক্ষুদ্র কাজ উপেক্ষা করা যেতে পারে।
+৭. কখন Task Error রিপোর্ট করবেন?
+পুরো ভিডিওই যদি annotation-এর উপযুক্ত না হয়, তাহলে “Task Error” দিন। শুধু ভিডিওর ছোট একটি অংশে সমস্যা থাকলে, বাকি অংশ স্বাভাবিকভাবে annotate করা গেলে বৈধ অংশের কাজ চালিয়ে যান।
+* পুরো ভিডিওতে হাত নেই, অথবা হাত এত কম দেখা যায় যে কাজ বোঝা যায় না।
+* ভিডিও খুব অন্ধকার বা অতিরিক্ত সাদা/overexposed; হাত চেনা যায় না।
+* ভিডিওতে সবুজ/কালো লাইন, flickering, ripple distortion বা অন্য গুরুতর visual artifact আছে।
+* ভিডিওটি প্রথম-ব্যক্তির hat-camera angle থেকে ধারণ করা নয়—প্রকল্পের নির্দেশনা অনুযায়ী Error দিন।
+* ভিডিওতে কালো গ্লাভস পরা হাত দেখা গেলে—প্রদত্ত নির্দেশনা অনুযায়ী Task Error দিন।
+* ভিডিওর বেশিরভাগ অংশ ফোন ব্যবহার; অথবা অন্য কোনো কারণে পুরো ভিডিও annotation-এর অনুপযুক্ত।
+
+
+
+
+
+
+৮. সঠিক ও ভুল Segmentation-এর উদাহরণ
+পরিস্থিতি
+	ভুল (এক ক্লিপে মিশিয়ে ফেলা)
+	সঠিকভাবে ভাগ
+	সবজি ধোয়া
+	সবজি তোলা → sink-এ রাখা → ধোয়া
+	১) সবজি তোলা  ২) sink-এ রাখা/ধোয়া — প্রকল্পের উদাহরণ অনুযায়ী সীমা নির্ধারণ করুন
+	Faucet
+	সবজি ধোয়া → faucet বন্ধ
+	১) সবজি ধোয়া  ২) faucet বন্ধ
+	Cabinet ও bowl
+	বাম হাতে cabinet খোলা, ডান হাতে bowl বের করা
+	দুই হাত একই সময়ে একই প্রক্রিয়া সম্পন্ন করলে এক Segment হতে পারে
+	কাপ ও কাপড়
+	বাম হাতে কাপ নামানো, বিরতির পর ডান হাতে কাপড় তোলা
+	দুইটি Segment
+	টেবিল মোছা
+	প্রতিটি wipe আলাদা করে কাটা
+	একই ধারাবাহিক wiping সাধারণত এক Segment
+	টেপ
+	ডান হাতে টেপ লাগানো → মসৃণ করা
+	দুইটি Segment
+	কাপড় পরিষ্কার
+	বেসিনে কাপড় ধোয়া → নিংড়ানো → নিয়ে যাওয়া
+	১) বেসিনে ধোয়া  ২) তুলে নিংড়ানো  ৩) কাপড় নিয়ে যাওয়া
+	৯. Fatal QA Error — এগুলো করা যাবে না
+* এক Segment-এ একাধিক স্বাধীন Action মিশিয়ে ফেলা।
+* Left hand-কে Right hand লেখা, বা একটি হাতের কাজকে Both hands বলা।
+* Segment-এর প্রথম/শেষ ফ্রেমে কবজি থেকে ওপরের অংশ দৃশ্যমান না থাকা।
+* দুই Segment-এর সময় একে অপরের সঙ্গে overlap করা।
+* ভিডিওতে দেখা যায়নি—এমন কাজ অনুমান করে লেখা। শুধু দৃশ্যমান কাজ অনুযায়ী Segment করুন।
+১০. দ্রুত কাজ করার Workflow
+1. নতুন ভিডিও এলে আগে Timeline দ্রুত scrub করে পুরো ভিডিওর কাজগুলো বুঝে নিন।
+2. আবার শুরুতে ফিরে প্রথম Action-এর শুরু খুঁজুন।
+3. N চাপুন—Segment শুরু করুন। Space বা Right Arrow দিয়ে ভিডিও চালান।
+4. Action শেষ হলে N চাপুন—Segment শেষ করুন/পরের Segment তৈরি করুন।
+5. প্রতিটি Segment-এর start ও end frame, hand visibility, action, object এবং duration যাচাই করুন।
+6. ক্লিপ ১০ সেকেন্ডের বেশি নয় এবং Segment-গুলোর মধ্যে সময় overlap নেই—নিশ্চিত করুন।
+7. পুরো ভিডিও অনুপযুক্ত হলে Task Error দিন; আংশিক সমস্যা হলে বৈধ অংশ annotate করুন।
+১১. প্রয়োজনীয় Shortcut
+N
+	নতুন Segment তৈরি / Segment boundary নির্ধারণ
+	Space
+	ভিডিও Play/Pause
+	L
+	বর্তমান Clip loop করা
+	X
+	নির্বাচিত Clip Delete
+	A / S
+	Start point সামঞ্জস্য করা
+	D / F
+	End point সামঞ্জস্য করা
+	B
+	Playhead অবস্থানে Clip split করা
+	Ctrl + Z
+	আগের কাজ Undo
+	১২. কাজ জমা দেওয়ার আগে Final Checklist
+* ☐ প্রতিটি Segment-এ একটি প্রধান Action আছে।
+* ☐ Action, operating hand বা object বদলালে প্রয়োজনমতো নতুন Segment করেছি।
+* ☐ Pick up / put down / open / close সাধারণত আলাদা করেছি।
+* ☐ একই ধারাবাহিক কাজকে অকারণে অনেক ছোট Segment-এ ভাগ করিনি।
+* ☐ কোনো Segment ১০ সেকেন্ডের বেশি নয়।
+* ☐ Start ও end frame-এ wrist থেকে ওপরের অংশ দেখা যায়।
+* ☐ হাতের visibility নিয়ম পূরণ হয়েছে।
+* ☐ Segment-গুলোর মধ্যে overlap নেই।
+* ☐ অপ্রয়োজনীয় phone/laptop/eating/drinking segment তৈরি করিনি।
+* ☐ ভিডিও পুরোপুরি অনুপযুক্ত হলে Task Error দিয়েছি।
+মনে রাখুন: হাত বদল, Action বদল, Object বদল, অথবা ধারাবাহিক প্রক্রিয়া ভেঙে গেলে—নতুন Segment বিবেচনা করুন।
+
+
+Slice Task Review Guideline
+বাংলা নির্দেশিকা
+১. সবচেয়ে গুরুত্বপূর্ণ নিয়ম
+নিয়ম ১: একটি Clip-এ একটি Action
+একই হাত দিয়ে করা দুটি আলাদা বা স্বাধীন Action একই Clip-এর মধ্যে রাখা যাবে না। Action পরিবর্তন হলে নতুন Clip তৈরি করতে হবে।
+উদাহরণ:
+* কাপটি ধরে রাখা → কাপটি টেবিলে নামিয়ে রাখা: Action পরিবর্তন হলে আলাদা Clip করতে হবে।
+* কাপটি ধরে একইভাবে মোছা বা পরিষ্কার করা: এটি একই Continuous Action হলে একটি Clip-এ রাখা যাবে, যদি অন্য সব নিয়ম ঠিক থাকে।
+মনে রাখবেন: হাতের অবস্থান পরিবর্তন হলেই Action পরিবর্তন হয়েছে, এমন নয়। আসল কাজটি পরিবর্তন হয়েছে কি না, সেটি দেখতে হবে।
+নিয়ম ২: Clip-এর শুরু ও শেষে হাত দৃশ্যমান থাকতে হবে
+ Egocentric Human-Object Interaction Detection: A New Benchmark and Method 
+
+২.১. Start ও End Frame
+Clip-এর প্রথম ফ্রেম এবং শেষ ফ্রেম—দুটিতেই কাজ করা হাতটি কবজি (Wrist) থেকে ওপরের অংশসহ দৃশ্যমান থাকতে হবে।
+ Hand2World | Egocentric Interaction Generation from Free-Space Gestures 
+
+২.২. পুরো Clip-এ হাতের দৃশ্যমানতা
+কাজ করা হাতটি Clip-এর অন্তত ৯০% সময় দৃশ্যমান থাকতে হবে।
+* হাত একটানা ১ সেকেন্ড বা তার বেশি অদৃশ্য থাকলে সেই Segment তৈরি করা যাবে না।
+* Clip-এর মোট সময়ের ২০%-এর বেশি হাত অদৃশ্য থাকলেও Segment তৈরি করা যাবে না।
+Review করার সময়: হাতের দৃশ্যমানতা যাচাই করুন। Start বা End Frame-এ হাতের প্রয়োজনীয় অংশ দেখা না গেলে, অথবা মাঝখানে নির্ধারিত সীমার বাইরে হাত অদৃশ্য থাকলে Return করুন।
+নিয়ম ৩: একটি Clip সর্বোচ্চ ১০ সেকেন্ড
+* কোনো Clip ১০ সেকেন্ডের বেশি হতে পারবে না।
+* একই Action দীর্ঘ সময় চলতে থাকলেও প্রতি ১০ সেকেন্ডের মধ্যে Clip ভাগ করতে হবে।
+* সম্ভব হলে Action-এর স্বাভাবিক বিরতিতে (Natural Pause) ভাগ করুন।
+* স্বাভাবিক বিরতি না থাকলেও ১০ সেকেন্ডের মধ্যে ভাগ করতে হবে।
+* ভাগ করার পর প্রতিটি Clip-এর Start Frame, End Frame এবং Hand Visibility-এর নিয়ম ঠিক থাকতে হবে।
+উদাহরণ: একজন ব্যক্তি একটানা ২৫ সেকেন্ড টেবিল মুছছেন। তাহলে Action অনুযায়ী সর্বোচ্চ ১০ সেকেন্ড করে একাধিক Clip করতে হবে; যেমন ০–১০, ১০–২০ এবং ২০–২৫ সেকেন্ড।
+নিয়ম ৪: Return Reason স্পষ্টভাবে লিখতে হবে
+কোনো Task Return করলে শুধু “Wrong” বা “Please fix” লিখবেন না।
+Return Reason-এ তিনটি বিষয় থাকতে হবে:
+1. Section: Guideline-এর কোন অংশে ভুল হয়েছে।
+2. Violation: ঠিক কোন নিয়ম ভঙ্গ হয়েছে।
+3. Reason: কী ভুল হয়েছে এবং কীভাবে সংশোধন করতে হবে।
+উদাহরণ:
+Section 3 – Single-Clip Duration Limit: The clip exceeds 10 seconds. Please split it into shorter clips while ensuring the hand is visible at the start and end of each clip.
+২. কোন পরিস্থিতিতে Clip ভাগ করতে হবে?
+২.১. একই হাতের Action পরিবর্তন হলে
+যদি একই হাত এক কাজ থেকে অন্য কাজে যায়, তাহলে নতুন Action-এর জন্য আলাদা Clip তৈরি করতে হবে।
+ PRO Towel Roll Luxury Grease Fighters Disposable Wipes Tear-off Cleaning Cloth with Low Price - Microfiber Cloth and Microfibre Cloth price 
+
+Clip 11
+বাঁ হাত দিয়ে বাটি ধরে রাখা হচ্ছে। ডান হাত দিয়ে কাপড়টি কলের ওপর রাখা হচ্ছে।
+Action পরিবর্তন
+ マイクロファイバーふきん（３枚）３０ｃｍ×３０ｃｍ
+-100均 通販 ダイソーオンラインショップ【公式】 
+
+Clip 12
+বাঁ হাত দিয়ে বাটি ধরে রাখা হচ্ছে এবং দুই হাত দিয়ে বাটি মোছা হচ্ছে।
+আবার Action পরিবর্তন
+Clip 13
+বাঁ হাত দিয়ে বাটি ধরে রাখা হচ্ছে এবং ডান হাত দিয়ে কল বন্ধ করা হচ্ছে।
+কেন আলাদা হবে? কারণ কাপড় রাখা, বাটি মোছা এবং কল বন্ধ করা—এগুলো তিনটি পৃথক Action। এগুলোকে একটি Clip-এ রাখা যাবে না।
+২.২. দুই হাতের Action পরিবর্তন হলে
+দুই হাতের কাজ একসঙ্গে পরিবর্তিত হলে নতুন Clip তৈরি করতে হবে।
+উদাহরণ:
+* Clip 12: বাঁ হাত দিয়ে প্লেট ধরে পাত্রে পানি ঢালা হচ্ছে, ডান হাতে স্প্যাচুলা ধরা আছে।
+* Clip 13: বাঁ হাত দিয়ে প্লেট নামিয়ে রাখা হচ্ছে, ডান হাত দিয়ে স্প্যাচুলা ব্যবহার করে খাবার রান্না করা হচ্ছে।
+* Clip 14: বাঁ হাত দিয়ে পাত্রের হাতল ধরা হচ্ছে, ডান হাত দিয়ে স্প্যাচুলা ব্যবহার করে রান্না করা হচ্ছে।
+এখানে হাতের কাজ ও কাজ করার ধরন পরিবর্তিত হয়েছে। তাই প্রতিটি স্বতন্ত্র Action অনুযায়ী Clip ভাগ করতে হবে।
+২.৩. কাজ করার পদ্ধতি পরিবর্তন হলে
+যদি দুই হাত আর একই সমন্বিত প্রক্রিয়ায় কাজ না করে এবং কাজ করার পদ্ধতি পরিবর্তিত হয়, তাহলে নতুন Clip তৈরি করতে হবে।
+উদাহরণ:
+* Clip 1: দুই হাত দিয়ে ব্যাগ ধরে ময়লা বাক্সে ঢালা হচ্ছে।
+* Clip 2: বাঁ হাত দিয়ে ব্যাগ ধরে রাখা হচ্ছে এবং ডান হাত দিয়ে ব্যাগটি ছেড়ে দেওয়া হচ্ছে।
+প্রথম Clip-এ দুই হাত ময়লা ফেলার একই কাজে সহযোগিতা করছে। দ্বিতীয় Clip-এ ডান হাতের Action পরিবর্তিত হয়েছে। তাই আলাদা করতে হবে।
+২.৪. Object বা বস্তু পরিবর্তন হলে
+একটি বস্তু নিয়ে কাজ শেষ করে অন্য বস্তু নিয়ে নতুন Action শুরু হলে আলাদা Clip করতে হবে।
+ How to choose a pillow that’s right for you 
+
+Clip 9
+দুই হাত দিয়ে Pillow A কুইল্টের ওপর সাজানো হচ্ছে।
+ Jak prać poduszki syntetyczne? | Blog SypialniaPlus 
+
+Clip 10
+দুই হাত দিয়ে বিছানা থেকে Pillow B তুলে নেওয়া হচ্ছে।
+এখানে বস্তু পরিবর্তন হয়েছে—Pillow A থেকে Pillow B। তাই আলাদা Clip হবে।
+৩. বিশেষ পরিস্থিতিতে কী করতে হবে?
+পরিস্থিতি
+	কী করতে হবে
+	শুধু হাঁটা
+	আলাদা Clip তৈরি করার প্রয়োজন নেই।
+	হাতে কিছু না নিয়ে শুধু হাত ধোয়া
+	আলাদা Clip তৈরি করার প্রয়োজন নেই।
+	Clip-এর ভেতরে Gap আছে
+	Gap-এর মধ্যে বৈধ Action থাকলে Return করতে হবে।
+	খাওয়া বা পান করা
+	এই কাজের জন্য আলাদা Clip তৈরি করতে হবে না।
+	ফোন বা ল্যাপটপ ব্যবহার
+	আলাদা Clip তৈরি করতে হবে না; মাউস ও কিবোর্ড ব্যবহারও এর অন্তর্ভুক্ত।
+	ক্যামেরা পরা ব্যক্তির কাজ
+	First-person perspective অনুযায়ী সেই ব্যক্তির Action-এ মনোযোগ দিতে হবে।
+	একই Action একটানা চলা
+	অকারণে ছোট ছোট Clip-এ ভাগ করা যাবে না।
+	দুই হাত মিলে একটি কাজ করা
+	একই সময়ে সমন্বিতভাবে একই কাজ করলে একটি Clip রাখা যাবে, যদি অন্য নিয়ম ঠিক থাকে।
+	গুরুত্বপূর্ণ ব্যাখ্যা
+Continuous Action অকারণে ভাগ করা যাবে না।
+উদাহরণ:
+* টুল দিয়ে স্ক্রু শক্ত করা।
+* টেবিল বা মেঝে মোছা।
+* দুই হাত ব্যবহার করে কাপড় ভাঁজ করা।
+এগুলো একই Action একটানা চললে একটি Clip-এ রাখা যাবে, তবে সর্বোচ্চ ১০ সেকেন্ডের নিয়ম মানতে হবে।
+অন্যদিকে, একই কাজের মধ্যে নতুন স্বাধীন Action শুরু হলে বা Object পরিবর্তন হলে প্রয়োজন অনুযায়ী নতুন Clip তৈরি করতে হবে।
+৪. Gap-এর ক্ষেত্রে বিশেষ সতর্কতা
+কোনো Clip-এর মধ্যে অপ্রয়োজনীয় ফাঁকা সময় থাকলে সেটি পরীক্ষা করতে হবে।
+* Gap-এর মধ্যে যদি বৈধ Action থাকে, তাহলে Task Return করতে হবে।
+* Clip-এর মধ্যে Action বাদ পড়েছে কি না যাচাই করতে হবে।
+* শুধু সময়ের ফাঁক আছে বলেই অন্ধভাবে Return না করে ভিডিও দেখে নিশ্চিত হতে হবে।
+
+
+Return Comment
+
+
+Action পরিবর্তন হয়েছে
+	The action changes within the clip. Please split the different actions into separate clips.
+	Clip ১০ সেকেন্ডের বেশি
+	The clip exceeds the 10-second limit. Please split it into clips of no more than 10 seconds.
+	হাত দৃশ্যমান নয়
+	The operating hand is not sufficiently visible. Please adjust the clip boundaries to meet the hand-visibility requirements.
+	Object পরিবর্তন হয়েছে
+	The object changes within this clip. Please split the actions involving different objects into separate clips.
+	Continuous Action অকারণে ভাগ করা হয়েছে
+	This continuous action has been fragmented unnecessarily. Please combine the continuous action into one clip, ensuring it does not exceed 10 seconds.
+	Wrong Side / Out-of-Scope Action
+	The description includes an action that is not supported by the video. Please remove the unsupported action and describe only the visible hand interaction, if any.
+	Missing Action / Gap
+	A valid action is missing or interrupted within this segment. Please review the clip boundaries and include all valid actions.
+	Flickering / Visual Glitch
+	The video contains flickering or visual glitches that affect reliable action verification. Please review the segment and follow the project guidelines.
+	Eating / Drinking
+	Eating or drinking actions should not be segmented. Please remove this clip.
+	Phone/Laptop use
+	Do not create segments for phone use or laptop use.
+	
+
+
+
+
+
+Case
+	Questions
+	Ref Image
+	Answer
+	Case: 1
+	If the person is using a phone with one hand while performing an action with the other, can we accept the clip?
+	  
+
+	Yes, This should be segment here
+	Case:2
+	Should we consider these as continuous processes? and make them in a single clip max 10 sec?
+	  
+
+	No. These are different actions. Need atomic-level segmentation
+
+
+Action 1: Open the packaging bag
+Action 2: Use the right hand to pick up the white circular object
+Action 3: Use the right hand to put the white circular object into the transparent bag
+Action 4: Press the seal of the transparent bag with both hands
+Action 5: Take the transparent bag with the right hand, and throw the transparent container containing the white circular object into the gray box
+
+
+	
+
+
+
+Atomic-level actions have always been our core. Only when this action is extremely fast (less than 0.5 seconds) can there be no extra time available on either side to fill in (allowing for the merging of actions).
+Pick up the vegetables - break them - throw them into the pot
+If the actions are too quick and less than 0.5sec, it can be in one clip. If not, segment them into different clips
+
+
+TEXT DESCRIPTION LABELING RULES
+সহজ বাংলা গাইড • Annotator & QA Team
+
+
+
+
+মূল লক্ষ্য: ভিডিও দেখে বর্তমান Text Description-এর স্পষ্ট ভুল সংশোধন করা—শুধু ভাষা সুন্দর করার জন্য নতুন করে লেখা নয়।
+১. মূল নিয়ম: Clear Error থাকলে সংশোধন করুন
+এই কাজের উদ্দেশ্য হলো বর্তমান বর্ণনা ভিডিওর সঙ্গে মেলে কি না তা যাচাই করা। বর্ণনা পুরোপুরি বিস্তারিত না হলেও মূল Action সঠিক থাকলে সাধারণত রেখে দিন। কিন্তু ভিডিওর সঙ্গে স্পষ্ট অমিল থাকলে হাতে-কলমে ঠিক করতে হবে।
+* ভুল Action sequence: put down লেখা আছে, কিন্তু ভিডিওতে pick up হচ্ছে—সংশোধন করুন।
+* ভুল Action meaning/direction: cut-কে hold, wipe-কে move, push-কে pull লেখা—সংশোধন করুন।
+* ভুল হাত: ভিডিওতে Left hand কাজ করছে, কিন্তু Right hand লেখা—সংশোধন করুন।
+* ভুল Object বা কল্পনা করা তথ্য: ভিডিওতে স্পঞ্জ ব্যবহার হচ্ছে না, কিন্তু বর্ণনায় স্পঞ্জের কাজ লেখা—সংশোধন করুন।
+* দুই হাত/একাধিক Object-এর ভুল বর্ণনা: কোন হাত কী করছে তা ভুল বা বিভ্রান্তিকর হলে ঠিক করুন।
+* ভুল অবস্থান: upper right লেখা হলেও বস্তু lower left-এ থাকলে অবস্থান ঠিক করুন, অথবা অবস্থান জরুরি না হলে ওই অংশ বাদ দিন।
+২. অযথা বেশি Edit করবেন না
+* মূল Action সঠিক, কিন্তু বর্ণনা একটু কম বিস্তারিত—এটি গ্রহণযোগ্য।
+* সব রং, উপাদান বা Background তথ্য উল্লেখ করা হয়নি—তবুও মূল কাজ পরিষ্কার হলে শুধু এ কারণে Edit করবেন না।
+* শুধু wording বা style পছন্দ না হওয়ার কারণে বর্ণনা পরিবর্তন করবেন না।
+* স্পষ্ট ভুল থাকলে অবশ্যই সংশোধন করবেন; অনুমান করে নতুন তথ্য যোগ করবেন না।
+৩. Text Description-এর Format
+[Hand] + [Action] + [Object + দৃশ্যমান বৈশিষ্ট্য]
+* right hand pick up a white cup
+* left hand open the wooden drawer
+* right hand cut vegetables with a stainless steel knife
+শুধু ভিডিওতে স্পষ্ট দেখা যায় এমন তথ্য লিখুন। রং/উপাদান পরিষ্কার দেখা গেলে এবং Object শনাক্ত করতে সাহায্য করলে যোগ করুন। বোঝা না গেলে অনুমান করবেন না।
+* pick up-কে hold লিখবেন না।
+* cut-কে move লিখবেন না।
+* wipe-কে touch লিখবেন না।
+৪. Left Hand, Right Hand ও দুই হাতের নিয়ম
+* Left hand ও Right hand সঠিকভাবে চিহ্নিত করতে হবে।
+* সাধারণভাবে একটি Segment-এ একটি প্রধান Action বর্ণনা করতে হবে।
+* একটি Segment-এ একাধিক Action থাকলে ভিডিওতে যা দেখা যায় তার ভিত্তিতে Description সংশোধন করুন।
+* বাম ও ডান হাত ভিন্ন কাজ করলে, একটি হাত একাধিক Object ধারাবাহিকভাবে ধরলে, বা দুই হাত একাধিক Object নিয়ে কাজ করলে—প্রাসঙ্গিক সব Action সঠিকভাবে বর্ণনা করুন।
+* কোনো গুরুত্বপূর্ণ হাতের কাজ বাদ পড়লে এবং বর্তমান বর্ণনার অংশ সঠিক থাকলে, সঠিক অংশ রেখে বাদ পড়া Action যোগ করুন।
+৫. Multiple Actions থাকলে অতিরিক্ত Button জমা দিন
+যদি একটি Segment-এ একাধিক Action থাকে, তাহলে দুটি কাজ করতে হবে:
+1. Text Description ভিডিও অনুযায়ী সংশোধন করুন।
+2. “This video segment contains multiple actions” Button/Option-টি Submit করুন।
+এই নিয়ম প্রযোজ্য যখন দুই হাত আলাদা Action করে, এক হাত দ্রুত একাধিক Object নিয়ে কাজ করে, অথবা দুই হাত একাধিক Object নিয়ে কাজ করে এবং বর্তমান বর্ণনা ভুল/অসম্পূর্ণ হওয়ায় বিভ্রান্তিকর হয়।
+৬. সাধারণ ভুলের উদাহরণ
+ভিডিওতে যা দেখা যায়
+	ভুল Description
+	কী করতে হবে
+	বাম হাতে সাদা কাপ নামানো
+	right hand pick up a white cup
+	left hand put down a white cup
+	Drawer বন্ধ করা
+	open the drawer
+	close the drawer
+	Trash bag ডাস্টবিনের ওপর রাখা
+	pull a trash bag out of a trash can
+	put a trash bag onto the trash can
+	কিছু কাটা
+	hold something
+	ভিডিওতে দেখা সঠিক cutting action লিখুন
+	টেবিল মোছা
+	move on the table
+	wipe the table
+	Faucet বন্ধ করা
+	doing something with the sponge
+	turn off the faucet
+	Cabinet খোলা
+	close the cabinet door
+	open the cabinet door
+	৭. কোন Description গ্রহণযোগ্য?
+ভিডিওতে Right hand একটি সাদা কাপ তুলছে। বর্তমান Description: “right hand pick up a cup”.
+সিদ্ধান্ত: এটি গ্রহণযোগ্য—কারণ Action সঠিক। শুধু white শব্দটি নেই বলে বাধ্যতামূলকভাবে Edit করতে হবে না। তবে সাদা রং স্পষ্ট দেখা যায় এবং কাপ শনাক্ত করতে সাহায্য করে, তাহলে যোগ করা ভালো।
+৮. বিশেষ Demo Case-গুলোর নিয়ম
+* Original Description সঠিক হলে সেটি রেখে দিন—শুধু আরও সুন্দর করার জন্য পরিবর্তন নয়।
+* Original Description ভিডিওর Movement/Action-এর সঙ্গে না মিললে, ভিডিও অনুযায়ী সংশোধন করুন এবং যতটা প্রয়োজন স্পষ্টভাবে লিখুন।
+* একটি হাতের Description সঠিক, কিন্তু অন্য হাতের Movement বাদ পড়েছে—সঠিক অংশ রেখে বাদ পড়া হাতের Action যোগ করুন।
+* Original Description শুধু ভুলভাবে Non-moving hand-এর কথা বলে, অথচ আসল কাজ অন্য হাত করছে—ভুল অংশ মুছে কাজ করা হাতের Action লিখুন।
+* এক হাতের কোনো বাস্তব Movement/Action নেই এবং তার Action ভুলভাবে লেখা—সেই ভুল অংশ বাদ দিন। তবে “holding still”, “remaining still” বা “being idle” বলে স্থির থাকা বর্ণনা করা হলে, সেটি গ্রহণযোগ্য হতে পারে।
+৯. ভুল Position ও Object নিয়ে সতর্কতা
+* কোনো Object-এর অবস্থান ভুল লেখা থাকলে, সঠিক অবস্থান লিখুন।
+* অবস্থান Action বোঝার জন্য জরুরি না হলে ভুল positional phrase বাদ দিয়ে সাধারণভাবে Object লিখুন।
+* ভিডিওতে Object স্পষ্টভাবে ব্যবহার না হলে সেটিকে Action-এর অংশ হিসেবে লিখবেন না।
+* যা দেখা যাচ্ছে না, তা অনুমান করে যোগ করবেন না—যেমন উদ্দেশ্য, পরিচয়, বা অস্পষ্ট উপাদান।
+১০. Final QA Checklist
+* ☐ Description-এর Action ভিডিওর সঙ্গে মেলে।
+* ☐ Pick up / put down, open / close, push / pull, cut / hold—এ ধরনের পার্থক্য যাচাই করেছি।
+* ☐ Left hand / Right hand সঠিক।
+* ☐ যে Object বাস্তবে ব্যবহৃত হচ্ছে না, তা Description-এ নেই।
+* ☐ দুই হাতের গুরুত্বপূর্ণ Movement বাদ পড়েনি।
+* ☐ ভুল positional phrase সংশোধন বা বাদ দিয়েছি।
+* ☐ মূল Description সঠিক হলে অযথা Edit করিনি।
+* ☐ একাধিক Action থাকলে Description সংশোধন করেছি এবং “This video segment contains multiple actions” Submit করেছি।
+* ☐ শুধু দৃশ্যমান তথ্য লিখেছি; অনুমান করিনি।
+মনে রাখুন: আপনার কাজ Text সুন্দর করা নয়—ভিডিওর সঙ্গে Description-এর স্পষ্ট ভুল ঠিক করা।
+
+
+
+
+1. Common Daily Actions
+English Action
+	বাংলা অর্থ
+	
+
+	
+
+	Picking up
+	তুলে নেওয়া
+	Putting down
+	নিচে রাখা
+	Placing
+	কোনো স্থানে রাখা
+	Holding
+	ধরে রাখা
+	Grabbing
+	শক্ত করে ধরা
+	Releasing
+	ছেড়ে দেওয়া
+	Moving
+	সরানো
+	Lifting
+	উপরে তোলা
+	Lowering
+	নিচে নামানো
+	Carrying
+	বহন করা
+	Taking
+	নেওয়া
+	Giving
+	দেওয়া
+	Passing
+	এগিয়ে দেওয়া / হাতে দেওয়া
+	Throwing
+	ছুড়ে ফেলা
+	Catching
+	ধরে ফেলা
+	Dropping
+	ফেলে দেওয়া
+	Pushing
+	ধাক্কা দেওয়া
+	Pulling
+	টানা
+	Dragging
+	টেনে নিয়ে যাওয়া
+	Adjusting
+	ঠিকভাবে সাজানো বা সমন্বয় করা
+	2. Hand and Object Actions
+English Action
+	বাংলা অর্থ
+	Touching
+	স্পর্শ করা
+	Pointing at
+	আঙুল দিয়ে নির্দেশ করা
+	Pressing
+	চাপ দেওয়া
+	Tapping
+	হালকাভাবে টোকা দেওয়া
+	Gripping
+	শক্তভাবে আঁকড়ে ধরা
+	Rotating
+	ঘোরানো
+	Turning
+	ঘুরিয়ে দেওয়া
+	Flipping
+	উল্টে দেওয়া
+	Opening
+	খোলা
+	Closing
+	বন্ধ করা
+	Folding
+	ভাঁজ করা
+	Unfolding
+	ভাঁজ খোলা
+	Wiping
+	মুছে পরিষ্কার করা
+	Cleaning
+	পরিষ্কার করা
+	Scrubbing
+	ঘষে পরিষ্কার করা
+	Rubbing
+	ঘষা
+	Shaking
+	ঝাঁকানো
+	Squeezing
+	চেপে ধরা
+	Stretching
+	টেনে প্রসারিত করা
+	Tearing
+	ছিঁড়ে ফেলা
+	3. Food and Drinking Actions
+English Action
+	বাংলা অর্থ
+	Eating
+	খাওয়া
+	Drinking
+	পান করা
+	Holding a cup
+	কাপ ধরে রাখা
+	Picking up food
+	খাবার তুলে নেওয়া
+	Pouring
+	ঢালা
+	Stirring
+	নাড়ানো
+	Mixing
+	মেশানো
+	Cutting food
+	খাবার কাটা
+	Serving food
+	খাবার পরিবেশন করা
+	Washing dishes
+	থালাবাসন ধোয়া
+	Filling a glass
+	গ্লাসে তরল ভরা
+	Opening a bottle
+	বোতল খোলা
+	4. Household and Work Actions
+English Action
+	বাংলা অর্থ
+	Sweeping the floor
+	মেঝে ঝাড়ু দেওয়া
+	Mopping the floor
+	মেঝে মোছা
+	Washing hands
+	হাত ধোয়া
+	Drying hands
+	হাত শুকানো
+	Opening a door
+	দরজা খোলা
+	Closing a door
+	দরজা বন্ধ করা
+	Sitting down
+	বসে পড়া
+	Standing up
+	দাঁড়ানো
+	Walking
+	হাঁটা
+	Bending down
+	নিচু হওয়া
+	Reaching for an object
+	কোনো বস্তুর দিকে হাত বাড়ানো
+	Arranging objects
+	জিনিসপত্র সাজানো
+	Packing an item
+	কোনো জিনিস প্যাক করা
+	Unpacking an item
+	প্যাকেট থেকে জিনিস বের করা
+	Writing on paper
+	কাগজে লেখা
+	Reading a document
+	কোনো নথি পড়া
+	Cutting with scissors
+	কাঁচি দিয়ে কাটা
+	Using a tool
+	কোনো সরঞ্জাম ব্যবহার করা
+	
+
+Label Task Review Guideline
+| বাংলা নির্দেশিকা
+
+
+1. ফরম্যাট (Format): Description-এ হাত + কাজ + বস্তু থাকতে হবে। প্রয়োজন অনুযায়ী বস্তুর দৃশ্যমান রং বা উপাদানের বিবরণ যোগ করতে হবে।
+2. বস্তু (Object): ভিডিওতে যে বস্তুটি ধরা, স্পর্শ করা বা সরানো হচ্ছে, Description-এ সেই বস্তুটিই উল্লেখ করতে হবে।
+3. কাজ (Action): ভিডিও অনুযায়ী সঠিক কাজ উল্লেখ করতে হবে। যেমন: স্পর্শ করা (Touch), চাপ দেওয়া (Press), ধরে রাখা (Hold), তুলে নেওয়া (Pick up), নামিয়ে রাখা (Put down), ঠিক করা বা সাজানো (Adjust), মোচড় দেওয়া (Twist), ছেড়ে দেওয়া (Release) এবং কোনো কিছুর ওপর হাত স্থির করে রাখা (Rest)।
+4. বাদ পড়া কাজ (Omission): ভিডিওতে একাধিক কাজ করা হলে কোনো গুরুত্বপূর্ণ কাজ যেন Description থেকে বাদ না পড়ে, তা নিশ্চিত করতে হবে।
+5. রং ও পরিবেশ (Color and Environment): বস্তুর রং এবং প্রাসঙ্গিক পরিবেশ বা পৃষ্ঠের বিবরণ সঠিক আছে কি না, তা পরীক্ষা করতে হবে। যেমন: ধূসর টেবিল বা বাদামি কাঠের ক্যাবিনেট।
+6. কোনো কাজ না থাকলে (No Action): ভিডিওতে কোনো কাজ না থাকলে নিজের থেকে কোনো কাল্পনিক কাজ যোগ করা যাবে না। তবে হাতের দৃশ্যমান স্পর্শ বা সংযোগ থাকলে সেটি Description-এ উল্লেখ করতে হবে।
+7. ফেরত দেওয়ার কারণ (Return Reason): টাস্ক ফেরত দেওয়ার সময় সঠিক সমস্যাটি, কোন নিয়ম লঙ্ঘন হয়েছে এবং কী সংশোধন করতে হবে—তা স্পষ্টভাবে লিখতে হবে, যাতে Annotator সহজেই ভুল বুঝতে পারে এবং সংশোধন করতে পারে।
+হাত সঠিকভাবে শনাক্ত করা হয়েছে
+
+
+
+
+Return Comment
+
+
+Format error
+	The description does not follow the required hand + action + object format. Please revise it to clearly identify the hand, action, and relevant object.
+	Wrong object
+	The annotated object does not match the object shown in the video. Please identify the correct object and update the description accordingly.
+	Wrong action
+	The described action does not match the hand movement shown in the video. Please review the clip and replace it with the correct action.
+	Missing action
+	One or more visible actions performed by the hand are missing from the description. Please review the entire clip and include the omitted actions in the correct sequence.
+	Wrong color or environment
+	The object's color or the relevant environment description does not match the video. Please correct the inaccurate details based on the visible evidence.
+	Unnecessary or nonexistent action
+	The description includes an action that is not supported by the video. Please remove the unsupported action and describe only the visible hand interaction, if any.

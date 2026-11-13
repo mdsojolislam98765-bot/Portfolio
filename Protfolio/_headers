@@ -1,0 +1,18 @@
+# Production Grade Cyber Defense & Security Headers for Sojol Visuals Portfolio
+/*
+  # Prevent Clickjacking & Framing Attacks
+  X-Frame-Options: SAMEORIGIN
+  # Prevent MIME-Sniffing Exploit
+  X-Content-Type-Options: nosniff
+  # Cross-Site Scripting Protection
+  X-XSS-Protection: 1; mode=block
+  # Referrer Protection
+  Referrer-Policy: strict-origin-when-cross-origin
+  # Restrict Dangerous Browser Features
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  # Force HTTPS with 1-Year Preload & Subdomains
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  # Access Control
+  Access-Control-Allow-Origin: *
+  # Content Security Policy (Allows Firebase, YouTube, Google Fonts, Geo API, Cal.com)
+  Content-Security-Policy: default-src 'self' https: data: blob: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data: blob: android-webview-video-poster:; media-src 'self' https: data: blob:; frame-src 'self' https://www.youtube.com https://youtube.com https://cal.com https://*.cal.com; connect-src 'self' https: wss:; font-src 'self' https: data:;
