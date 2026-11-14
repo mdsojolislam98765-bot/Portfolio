@@ -1711,9 +1711,9 @@
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
             <div>
               <div class="card-title" style="margin-bottom: 4px;">
-                <span>Real-Time Visitor Analytics & Geo Intelligence</span>
+                <span>Real-Time Visitor Analytics & Client Pitch Tracking</span>
               </div>
-              <p class="card-desc" style="margin-bottom: 0;">Live visitor traffic, geographic locations, device breakdown, and recent activity streamed directly from Google Cloud Firestore.</p>
+              <p class="card-desc" style="margin-bottom: 0;">Live visitor traffic, geographic locations, client email pitch opens, and device intelligence streamed in real-time from Google Cloud Firestore.</p>
             </div>
             <button type="button" onclick="loadLiveAnalytics()" class="btn btn-secondary" style="font-size: 12px; padding: 6px 14px; gap: 6px;">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 4px;"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg> Refresh Live Data
@@ -1737,30 +1737,65 @@
               <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Visits recorded today</div>
             </div>
             <div style="background: rgba(168, 85, 247, 0.08); border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 12px; padding: 18px 20px;">
-              <div style="font-size: 11px; font-weight: 700; color: #c084fc; text-transform: uppercase; letter-spacing: 0.5px;">Top Country</div>
-              <div id="statTopCountry" style="font-size: 20px; font-weight: 800; color: #fff; margin-top: 10px; font-family: 'Syne', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">-</div>
-              <div style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">Highest traffic country origin</div>
+              <div style="font-size: 11px; font-weight: 700; color: #c084fc; text-transform: uppercase; letter-spacing: 0.5px;">Tracked Client Opens</div>
+              <div id="statTrackedLeads" style="font-size: 32px; font-weight: 800; color: #fff; margin-top: 6px; font-family: 'Syne', sans-serif;">0</div>
+              <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Cold emails & pitched clients opened</div>
             </div>
           </div>
         </div>
+
+        <!-- Personalized Client Tracking Link Generator -->
+        <div class="card" style="margin-top: 20px; border-left: 4px solid #8b5cf6; background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(20, 15, 38, 0.8) 100%);">
+          <div class="card-title">
+            <span>🎯 Personalized Client Tracking Links Generator</span>
+          </div>
+          <p class="card-desc">Create a personalized tracking link for cold emails, DMs, or Upwork pitches. When this client opens your portfolio, you'll instantly see their email/name, city, country, device, and time below!</p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px;">
+            <input type="text" id="trackingClientInput" placeholder="Enter client name or email (e.g. mrbeast@gmail.com, David, Netflix)" class="form-control" style="flex: 1; min-width: 260px; background: rgba(0,0,0,0.4); border-color: rgba(139, 92, 246, 0.4);" />
+            <button type="button" onclick="generateTrackingLink()" class="btn btn-primary" style="gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Generate Tracked Link
+            </button>
+          </div>
+          <div id="trackingResultBox" style="display: none; margin-top: 14px; background: rgba(0,0,0,0.5); border: 1px solid rgba(139, 92, 246, 0.35); border-radius: 8px; padding: 12px 16px;">
+            <div style="font-size: 11.5px; color: #c4b5fd; font-weight: 600; margin-bottom: 6px;">Your Tracked Client Pitch Link:</div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+              <code id="trackingLinkOutput" style="color: #34d399; font-size: 13px; word-break: break-all; font-family: monospace;"></code>
+              <button type="button" onclick="copyTrackingLink()" class="btn btn-secondary" style="font-size: 11.5px; padding: 5px 12px;">📋 Copy Link</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Targeted Client Opens (Leads Feed) -->
+        <div class="card" style="margin-top: 20px;">
+          <div class="card-title" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span>🎯 Targeted Clients & Pitch Opens Feed</span>
+            <span id="clientLeadsCountBadge" style="font-size: 11px; background: rgba(139, 92, 246, 0.2); color: #c4b5fd; padding: 2px 8px; border-radius: 999px; font-weight: 700;">0 Clients</span>
+          </div>
+          <p class="card-desc">Specific clients, channels, or cold email recipients who clicked your personalized tracking links:</p>
+          <div id="analyticsClientLeadsContainer" style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px;">
+            <p style="color: var(--text-muted); font-size: 13px;">No tracked client opens yet. Create and send a tracked link above!</p>
+          </div>
+        </div>
+
         <!-- Geographic Countries Distribution -->
         <div class="card" style="margin-top: 20px;">
           <div class="card-title">
             <span>Visitor Geographic Locations (Countries & Cities)</span>
           </div>
-          <p class="card-desc">Breakdown of visitors by country and city, showing exact session counts and traffic percentage:</p>
+          <p class="card-desc">Breakdown of visitors by country, showing exact visit counts and traffic percentages:</p>
           <div id="analyticsCountriesContainer" style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px;">
-          <p style="color: var(--text-muted); font-size: 13px;">Loading live data...</p>
+            <p style="color: var(--text-muted); font-size: 13px;">Loading live data...</p>
           </div>
         </div>
+
         <!-- Recent Visitors Live Stream -->
         <div class="card" style="margin-top: 20px;">
           <div class="card-title">
-            <span>Live Recent Visitors Feed</span>
+            <span>Live Recent Visitors Activity Stream</span>
           </div>
-          <p class="card-desc">Real-time activity stream showing the latest visitor locations, device types, and referrers:</p>
-          <div id="analyticsRecentContainer" style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px; max-height: 480px; overflow-y: auto; padding-right: 4px;">
-          <p style="color: var(--text-muted); font-size: 13px;">Loading live data...</p>
+          <p class="card-desc">Real-time activity showing latest visitor cities, countries, internet providers (ISP), devices, and direct Google Maps locations:</p>
+          <div id="analyticsRecentContainer" style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px; max-height: 520px; overflow-y: auto; padding-right: 4px;">
+            <p style="color: var(--text-muted); font-size: 13px;">Loading live data...</p>
           </div>
         </div>
       </section>
@@ -3410,31 +3445,94 @@
         if (btn) btn.textContent = 'Refresh Live Data';
       }
     }
+    function generateTrackingLink() {
+      const input = document.getElementById('trackingClientInput');
+      const val = (input?.value || '').trim();
+      if (!val) {
+        alert('Please enter a client name or email (e.g. mrbeast@gmail.com, David, Netflix).');
+        return;
+      }
+      const baseUrl = window.location.origin;
+      const cleanParam = encodeURIComponent(val);
+      const fullUrl = `${baseUrl}/?client=${cleanParam}`;
+      const resBox = document.getElementById('trackingResultBox');
+      const outCode = document.getElementById('trackingLinkOutput');
+      if (outCode) outCode.textContent = fullUrl;
+      if (resBox) resBox.style.display = 'block';
+    }
+
+    function copyTrackingLink() {
+      const outCode = document.getElementById('trackingLinkOutput');
+      if (!outCode || !outCode.textContent) return;
+      navigator.clipboard.writeText(outCode.textContent).then(() => {
+        showToast('Tracked client link copied to clipboard! Paste it into your email/DM pitch.');
+      }).catch(() => {
+        alert('Copied link: ' + outCode.textContent);
+      });
+    }
+
     function renderAnalyticsUI(data) {
       if (!data) return;
       const totalVisits = data.totalVisits || 0;
       const uniqueSessions = data.uniqueSessions || 0;
       const todayStr = new Date().toISOString().slice(0, 10);
       const todayVisits = data.daily ? (data.daily[todayStr] || 0) : 0;
-      // Update counters
+      const clientLeads = data.clientLeads || {};
+      const clientLeadKeys = Object.keys(clientLeads);
+
+      // Counters
       const totalEl = document.getElementById('statTotalVisits');
       const uniqueEl = document.getElementById('statUniqueSessions');
       const todayEl = document.getElementById('statTodayVisits');
-      const topCountryEl = document.getElementById('statTopCountry');
+      const leadsEl = document.getElementById('statTrackedLeads');
+      const leadsBadge = document.getElementById('clientLeadsCountBadge');
+
       if (totalEl) totalEl.textContent = totalVisits.toLocaleString();
       if (uniqueEl) uniqueEl.textContent = uniqueSessions.toLocaleString();
       if (todayEl) todayEl.textContent = todayVisits.toLocaleString();
-      // Top Countries breakdown
-      const countries = data.countries || {};
-      const countryEntries = Object.entries(countries).sort((a, b) => b[1].count - a[1].count);
-      if (topCountryEl) {
-        if (countryEntries.length > 0) {
-          const top = countryEntries[0];
-          const flag = (top[1] && top[1].flag) ? top[1].flag : ""; topCountryEl.textContent = flag + " " + top[0] + " (" + top[1].count + ")";
+      if (leadsEl) leadsEl.textContent = clientLeadKeys.length.toLocaleString();
+      if (leadsBadge) leadsBadge.textContent = `${clientLeadKeys.length} Tracked Clients`;
+
+      // 1. Render Tracked Client Leads Feed
+      const leadsContainer = document.getElementById('analyticsClientLeadsContainer');
+      if (leadsContainer) {
+        if (clientLeadKeys.length === 0) {
+          leadsContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 13px;">No tracked client opens recorded yet. Generate and send a tracked link above!</p>';
         } else {
-          topCountryEl.textContent = '-';
+          leadsContainer.innerHTML = clientLeadKeys.map(key => {
+            const lead = clientLeads[key];
+            const timeAgo = formatTimeAgo(lead.lastSeen);
+            const flag = lead.flag || '🎯';
+            return `
+            <div style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(20, 15, 38, 0.9) 100%); border: 1px solid rgba(139, 92, 246, 0.35); border-radius: 12px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+              <div style="display: flex; gap: 14px; align-items: center;">
+                <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(139, 92, 246, 0.25); display: flex; align-items: center; justify-content: center; font-size: 20px;">
+                  ${flag}
+                </div>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <span style="font-weight: 800; color: #fff; font-size: 15px;">${escapeHtml(lead.clientTag || key)}</span>
+                    <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px;">${lead.views || 1} Opens</span>
+                  </div>
+                  <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">
+                    <span style="color: #c4b5fd;">📍 ${escapeHtml(lead.location || 'Unknown')}</span>
+                    ${lead.isp ? ` • <span style="color: #94a3b8;">${escapeHtml(lead.isp)}</span>` : ''}
+                    • <span>📱 ${escapeHtml(lead.device || 'Desktop')} (${escapeHtml(lead.browser || 'Browser')})</span>
+                  </div>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <span style="font-size: 11.5px; font-weight: 700; color: #a78bfa; background: rgba(139, 92, 246, 0.18); padding: 4px 10px; border-radius: 999px;">Last Seen: ${timeAgo}</span>
+              </div>
+            </div>
+            `;
+          }).join('');
         }
       }
+
+      // 2. Render Countries Distribution
+      const countries = data.countries || {};
+      const countryEntries = Object.entries(countries).sort((a, b) => (b[1].count || 0) - (a[1].count || 0));
       const cContainer = document.getElementById('analyticsCountriesContainer');
       if (cContainer) {
         if (countryEntries.length === 0) {
@@ -3443,7 +3541,7 @@
           cContainer.innerHTML = countryEntries.map(([cName, cData]) => {
             const count = cData.count || 0;
             const pct = totalVisits > 0 ? Math.round((count / totalVisits) * 100) : 0;
-            const flag = cData.flag || '';
+            const flag = cData.flag || '🌍';
             return `
             <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px 16px;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
@@ -3456,43 +3554,53 @@
                   <span style="background: rgba(168,85,247,0.18); color: #c4b5fd; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 999px;">${pct}%</span>
                 </div>
               </div>
-              <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden;">
-                <div style="width: ${pct}%; height: 100%; background: linear-gradient(90deg, #8b5cf6, #ec4899); border-radius: 999px;"></div>
+              <div style="background: rgba(255,255,255,0.06); height: 6px; border-radius: 999px; overflow: hidden;">
+                <div style="background: linear-gradient(90deg, #8b5cf6, #3b82f6); height: 100%; width: ${pct}%;"></div>
               </div>
             </div>
             `;
           }).join('');
         }
       }
-      // Recent Activity Stream
+
+      // 3. Render Live Recent Visitors Activity Stream
       const rContainer = document.getElementById('analyticsRecentContainer');
       const recentList = data.recent || [];
       if (rContainer) {
         if (recentList.length === 0) {
-          rContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 13px;">No visitor activity yet.</p>';
+          rContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 13px;">No visitor activity recorded yet.</p>';
         } else {
-          rContainer.innerHTML = recentList.map((item, idx) => {
+          rContainer.innerHTML = recentList.map(item => {
             const timeAgo = formatTimeAgo(item.timestamp);
-            const flag = item.flag || '';
-            const locationStr = [item.city, item.country].filter(Boolean).join(', ') || 'Unknown Location';
-            const deviceIcon = item.device === 'Mobile' ? 'Mobile' : 'Desktop';
+            const flag = item.flag || '🌍';
+            const locationParts = [item.city, item.region, item.country].filter(Boolean);
+            const locationStr = locationParts.join(', ') || 'Unknown Location';
+            const mapQuery = encodeURIComponent([item.city, item.country].filter(Boolean).join(', '));
+            const mapUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+            const deviceStr = item.device || 'Desktop';
             const browserStr = item.browser || 'Browser';
-            const ispStr = item.isp ? ` â€¢ ${item.isp}` : '';
-            const refStr = item.referrer || 'Direct';
+            const ispStr = item.isp ? ` • ${item.isp}` : '';
+            const screenStr = item.screenRes ? ` • ${item.screenRes}` : '';
+            const isClient = Boolean(item.clientTag);
+
             return `
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div style="background: ${isClient ? 'rgba(139, 92, 246, 0.08)' : 'rgba(255,255,255,0.03)'}; border: 1px solid ${isClient ? 'rgba(139, 92, 246, 0.35)' : 'rgba(255,255,255,0.06)'}; border-radius: 10px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
               <div style="display: flex; gap: 12px; align-items: center;">
-                <span style="font-size: 22px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 50%;">${flag}</span>
+                <span style="font-size: 22px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 50%;">${flag}</span>
                 <div>
-                  <div style="font-weight: 700; color: #fff; font-size: 13.5px;">${escapeHtml(locationStr)}</div>
-                  <div style="font-size: 11.5px; color: var(--text-muted); margin-top: 2px;">
-                    <span>${deviceIcon}</span> â€¢ <span>${escapeHtml(browserStr)}</span><span style="color: #94a3b8;">${escapeHtml(ispStr)}</span>
+                  <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <span style="font-weight: 700; color: #fff; font-size: 14px;">${escapeHtml(locationStr)}</span>
+                    ${isClient ? `<span style="background: linear-gradient(135deg, #8b5cf6, #6366f1); color: #fff; font-size: 10.5px; font-weight: 800; padding: 2px 8px; border-radius: 999px; box-shadow: 0 0 10px rgba(139,92,246,0.4);">🎯 Client: ${escapeHtml(item.clientTag)}</span>` : ''}
+                    ${mapQuery ? `<a href="${mapUrl}" target="_blank" rel="noopener" style="color: #60a5fa; font-size: 11px; text-decoration: none; display: inline-flex; align-items: center; gap: 2px;">📍 View Map</a>` : ''}
+                  </div>
+                  <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">
+                    <span>💻 ${escapeHtml(deviceStr)}</span> • <span>${escapeHtml(browserStr)}</span><span style="color: #94a3b8;">${escapeHtml(ispStr)}</span><span style="color: #64748b;">${escapeHtml(screenStr)}</span>
                   </div>
                 </div>
               </div>
-              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 3px;">
-                <span style="font-size: 11px; font-weight: 700; color: #34d399; background: rgba(16,185,129,0.12); padding: 2px 7px; border-radius: 999px;">${timeAgo}</span>
-                <span style="font-size: 10.5px; color: #a78bfa;">Via ${escapeHtml(refStr)}</span>
+              <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                <span style="font-size: 11px; font-weight: 700; color: #34d399; background: rgba(16,185,129,0.12); padding: 2px 8px; border-radius: 999px;">${timeAgo}</span>
+                <span style="font-size: 10.5px; color: #a78bfa;">${escapeHtml(item.referrer || 'Direct')}</span>
               </div>
             </div>
             `;
@@ -3500,6 +3608,7 @@
         }
       }
     }
+
     function formatTimeAgo(ts) {
       if (!ts) return 'Just now';
       const sec = Math.floor((Date.now() - ts) / 1000);
@@ -3862,6 +3971,9 @@
   </script>
 </body>
 </html>
+
+
+
 
 
 

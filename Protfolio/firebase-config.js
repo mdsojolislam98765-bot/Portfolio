@@ -80,7 +80,7 @@ function listenToFirebaseCloud(callback) {
   }
 }
 
-// ===== REAL-TIME VISITOR ANALYTICS & GEO ENGINE =====
+// ===== REAL-TIME VISITOR ANALYTICS & GEO ENGINE WITH CLIENT/EMAIL TRACKING =====
 async function logVisitorHit() {
   if (!isFirebaseReady || !firestoreDb) return;
   try {
@@ -88,13 +88,19 @@ async function logVisitorHit() {
     if (localStorage.getItem('sojol_admin_authenticated') === 'true' || location.search.includes('admin') || location.hash.includes('admin')) {
       return;
     }
-    // 2. Session guard (prevent duplicate counter on simple page refresh)
+
+    // 2. Extract Client Tag / Email / Campaign from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const clientTag = (urlParams.get('client') || urlParams.get('email') || urlParams.get('c') || urlParams.get('to') || urlParams.get('ref') || urlParams.get('utm_campaign') || urlParams.get('source') || '').trim();
+
+    // 3. Session guard (If it's a tracked client email link, always log so Sojol gets instant notification)
     const sessionKey = 'sojol_logged_session';
     const isNewSession = !sessionStorage.getItem(sessionKey);
+    if (!clientTag && !isNewSession) return;
     sessionStorage.setItem(sessionKey, '1');
 
-    // 3. Fetch geo info with strict timeout
-    let geo = { country: 'Unknown', city: '', country_code: 'UN', flag: '🌐', isp: '' };
+    // 4. Fetch rich geo info with strict timeout
+    let geo = { country: 'Unknown', city: '', region: '', country_code: 'UN', flag: '🌍', isp: '', ip: '', lat: null, lon: null };
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 2800);
@@ -106,42 +112,63 @@ async function logVisitorHit() {
           geo = {
             country: d.country || 'Unknown',
             city: d.city || '',
+            region: d.region || '',
             country_code: d.country_code || '',
-            flag: d.flag?.emoji || '🌐',
-            isp: d.connection?.isp || ''
+            flag: d.flag?.emoji || '🌍',
+            isp: d.connection?.isp || d.connection?.org || '',
+            ip: d.ip || '',
+            lat: d.latitude || null,
+            lon: d.longitude || null
           };
         }
       }
     } catch (e) {}
 
-    // 4. Device & Browser info
+    // 5. Device & OS & Browser info
     const ua = navigator.userAgent || '';
-    const isMobile = /Mobile|Android|iPhone|iPad/i.test(ua);
-    const device = isMobile ? 'Mobile' : 'Desktop';
-    let browser = 'Chrome';
-    if (ua.includes('Firefox')) browser = 'Firefox';
-    else if (ua.includes('Safari') && !ua.includes('Chrome')) browser = 'Safari';
-    else if (ua.includes('Edg')) browser = 'Edge';
+    let deviceType = 'Desktop';
+    if (/iPad|tablet/i.test(ua)) deviceType = 'Tablet';
+    else if (/Mobile|Android|iPhone/i.test(ua)) deviceType = 'Mobile';
 
+    let os = 'Windows';
+    if (/iPhone|iPad|iPod/i.test(ua)) os = 'iOS';
+    else if (/Macintosh|Mac OS X/i.test(ua)) os = 'macOS';
+    else if (/Android/i.test(ua)) os = 'Android';
+    else if (/Linux/i.test(ua)) os = 'Linux';
+
+    let browser = 'Chrome';
+    if (/Firefox/i.test(ua)) browser = 'Firefox';
+    else if (/Edg/i.test(ua)) browser = 'Edge';
+    else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) browser = 'Safari';
+    else if (/Opera|OPR/i.test(ua)) browser = 'Opera';
+
+    const screenRes = (typeof window !== 'undefined' && window.screen) ? `${window.screen.width}x${window.screen.height}` : '';
     const timestamp = Date.now();
     const dateStr = new Date().toISOString().slice(0, 10);
+    const referrer = document.referrer ? new URL(document.referrer).hostname : (clientTag ? `Email/DM Pitch (${clientTag})` : 'Direct Link');
 
     const hit = {
       country: geo.country,
       city: geo.city,
+      region: geo.region,
       country_code: geo.country_code,
       flag: geo.flag,
       isp: geo.isp,
-      device,
+      ip: geo.ip ? geo.ip.replace(/\.\d+$/, '.***') : '',
+      lat: geo.lat,
+      lon: geo.lon,
+      device: `${deviceType} (${os})`,
       browser,
-      referrer: document.referrer ? new URL(document.referrer).hostname : 'Direct',
+      screenRes,
+      clientTag,
+      referrer,
       timestamp
     };
 
     const docRef = firestoreDb.collection("analytics").doc("overview");
     await firestoreDb.runTransaction(async (transaction) => {
       const doc = await transaction.get(docRef);
-      let data = doc.exists ? doc.data() : { totalVisits: 0, uniqueSessions: 0, daily: {}, countries: {}, recent: [] };
+      let data = doc.exists ? doc.data() : { totalVisits: 0, uniqueSessions: 0, daily: {}, countries: {}, recent: [], clientLeads: {} };
 
       data.totalVisits = (data.totalVisits || 0) + 1;
       if (isNewSession) {
@@ -156,16 +183,31 @@ async function logVisitorHit() {
       data.countries[cName] = data.countries[cName] || { count: 0, flag: geo.flag, code: geo.country_code };
       data.countries[cName].count = (data.countries[cName].count || 0) + 1;
 
+      // Track identified clients/emails specifically
+      if (clientTag) {
+        data.clientLeads = data.clientLeads || {};
+        data.clientLeads[clientTag] = {
+          clientTag,
+          lastSeen: timestamp,
+          views: ((data.clientLeads[clientTag]?.views) || 0) + 1,
+          location: [geo.city, geo.country].filter(Boolean).join(', ') || 'Unknown Location',
+          flag: geo.flag,
+          isp: geo.isp,
+          device: `${deviceType} (${os})`,
+          browser
+        };
+      }
+
       data.recent = data.recent || [];
       data.recent.unshift(hit);
-      if (data.recent.length > 50) {
-        data.recent = data.recent.slice(0, 50);
+      if (data.recent.length > 80) {
+        data.recent = data.recent.slice(0, 80);
       }
 
       data.lastUpdated = timestamp;
       transaction.set(docRef, data, { merge: true });
     });
-    console.log('[Analytics] Visitor hit logged:', geo.country, geo.city);
+    console.log('[Analytics] Visitor hit logged:', geo.country, geo.city, clientTag ? `(Client: ${clientTag})` : '');
   } catch (err) {
     console.warn('[Analytics] Log error:', err);
   }
