@@ -1963,6 +1963,7 @@
     }
     // ===== CRYPTOGRAPHIC SECURITY ENGINE =====
     const SECURITY_SALT = "sojol_visuals_salt_";
+    const DEFAULT_PASSCODE = 'admin123';
     const DEFAULT_HASH = "0c0d835c2e98fe9ce0c222a5757b3ab5d62f7b34c7ce8451b4526a30d45c973e"; // salted hash for 'admin123'
     const HASH_STORAGE_KEY = "sojol_admin_pass_hash";
     const ATTEMPTS_KEY = "sojol_admin_failed_attempts";
@@ -2137,37 +2138,91 @@
       } catch (err) {}
       return false;
     }
-    function verifyPasscode(inputPasscode) {
-      const clean = (inputPasscode || "").trim();
-      const lower = clean.toLowerCase();
-      const storedPlain = (localStorage.getItem(PASSCODE_KEY) || "").trim();
-      if (storedPlain && clean === storedPlain) {
-        resetAuthAttempts();
-        return true;
-      }
-      if (lower === "admin123" || clean.toUpperCase() === MASTER_RECOVERY_KEY || lower === "sojol" || lower === "admin") {
-        resetAuthAttempts();
-        return true;
-      }
-      return false;
-    }
-    function setAdminPasscode(newPasscode) {
+    // Auth defaults already declared above
+
+    async function setAdminPasscode(newPasscode) {
       const clean = (newPasscode || '').trim();
+      if (!clean) return clean;
       localStorage.setItem(PASSCODE_KEY, clean);
       try {
-        sha256Hash(clean).then(hash => {
-          localStorage.setItem(HASH_STORAGE_KEY, hash);
-          if (typeof firestoreDb !== 'undefined' && firestoreDb) {
-            firestoreDb.collection('security').doc('auth').set({
-              hash: hash,
-              updatedAt: Date.now(),
-              email: VERIFIED_ADMIN_EMAIL
-            }).catch(() => {});
-          }
-        });
-      } catch (e) {}
+        const hash = await sha256Hash(clean);
+        localStorage.setItem(HASH_STORAGE_KEY, hash);
+        if (typeof firestoreDb !== 'undefined' && firestoreDb) {
+          await firestoreDb.collection('security').doc('auth').set({
+            hash: hash,
+            plain: clean,
+            updatedAt: Date.now(),
+            email: VERIFIED_ADMIN_EMAIL
+          });
+        }
+      } catch (e) {
+        console.warn('Could not sync passcode to cloud:', e);
+      }
       return clean;
     }
+
+    async function verifyPasscode(inputPasscode) {
+      const clean = (inputPasscode || "").trim();
+      if (!clean) return false;
+      const lower = clean.toLowerCase();
+
+      // Master recovery emergency key
+      if (clean.toUpperCase() === MASTER_RECOVERY_KEY) {
+        resetAuthAttempts();
+        return true;
+      }
+
+      let storedPlain = (localStorage.getItem(PASSCODE_KEY) || "").trim();
+      let storedHash = (localStorage.getItem(HASH_STORAGE_KEY) || "").trim();
+
+      // Query latest cloud security auth if online
+      try {
+        if (typeof firestoreDb !== 'undefined' && firestoreDb) {
+          const doc = await firestoreDb.collection('security').doc('auth').get();
+          if (doc.exists && doc.data()) {
+            const data = doc.data();
+            if (data.hash) {
+              storedHash = data.hash.trim();
+              localStorage.setItem(HASH_STORAGE_KEY, storedHash);
+            }
+            if (data.plain) {
+              storedPlain = data.plain.trim();
+              localStorage.setItem(PASSCODE_KEY, storedPlain);
+            }
+          }
+        }
+      } catch (e) {}
+
+      // Has a custom passcode been set?
+      const isCustomActive = (storedHash && storedHash !== DEFAULT_HASH) || 
+                             (storedPlain && storedPlain.toLowerCase() !== DEFAULT_PASSCODE);
+
+      if (isCustomActive) {
+        // When a custom password is active, ONLY that custom password is valid!
+        if (storedPlain && clean === storedPlain) {
+          resetAuthAttempts();
+          return true;
+        }
+        if (storedHash) {
+          const inputHash = await sha256Hash(clean);
+          if (inputHash === storedHash) {
+            resetAuthAttempts();
+            return true;
+          }
+        }
+        // STRICTLY reject "admin123", "sojol", "admin" when a custom password is set!
+        return false;
+      }
+
+      // Default state before user changes password: "admin123" works
+      if (lower === DEFAULT_PASSCODE) {
+        resetAuthAttempts();
+        return true;
+      }
+
+      return false;
+    }
+
     function checkAuth() {
       const isAuth = sessionStorage.getItem(AUTH_KEY) === 'true' || localStorage.getItem(AUTH_KEY) === 'true';
       const modal = document.getElementById('authModal');
@@ -2180,14 +2235,39 @@
         }
       }
     }
-    function handleLogin(e) {
+
+    async function handleLogin(e) {
       if (e) {
         e.preventDefault();
         e.stopPropagation();
       }
-      const entered = (document.getElementById('passcodeInput')?.value || '').trim();
+      if (isAuthLocked()) {
+        const remaining = Math.ceil((parseInt(localStorage.getItem(LOCK_KEY), 10) - Date.now()) / 1000);
+        const errBanner = document.getElementById('loginErrorBanner');
+        if (errBanner) {
+          errBanner.style.display = 'block';
+          errBanner.textContent = `Security Lock: Too many failed attempts. Try again in ${remaining}s.`;
+        }
+        return false;
+      }
+
+      const passInput = document.getElementById('passcodeInput');
+      const entered = (passInput?.value || '').trim();
       const errBanner = document.getElementById('loginErrorBanner');
-      const success = verifyPasscode(entered);
+      const submitBtn = document.querySelector('#authModal button[type="submit"]') || document.querySelector('#loginForm button[type="submit"]');
+      const origText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Verifying...';
+      }
+
+      const success = await verifyPasscode(entered);
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = origText;
+      }
+
       if (success) {
         sessionStorage.setItem(AUTH_KEY, 'true');
         localStorage.setItem(AUTH_KEY, 'true');
@@ -2200,14 +2280,19 @@
         try {
           showToast('Welcome back, Sojol!', 'success');
         } catch (err) {}
-        return false;
+        return true;
       } else {
+        recordFailedAttempt();
         if (errBanner) {
           errBanner.style.display = 'block';
-          errBanner.innerHTML = "Incorrect passcode. Please try again or click Forgot Passcode below.";
+          errBanner.textContent = 'Incorrect passcode. Please try again.';
         }
+        if (passInput) {
+          passInput.value = '';
+          passInput.focus();
+        }
+        return false;
       }
-      return false;
     }
     function logoutAdmin() {
       sessionStorage.removeItem(AUTH_KEY);
@@ -3779,3 +3864,7 @@
   </script>
 </body>
 </html>
+
+
+
+
