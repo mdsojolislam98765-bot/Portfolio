@@ -1,12 +1,8 @@
 {
-  "version": 2,
-  "cleanUrls": true,
   "rewrites": [
-    { "source": "/", "destination": "/Protfolio/index.html" },
+    { "source": "/", "destination": "/Protfolio" },
     { "source": "/admin", "destination": "/Protfolio/admin.html" },
-    { "source": "/admin.html", "destination": "/Protfolio/admin.html" },
     { "source": "/cv", "destination": "/Protfolio/cv.html" },
-    { "source": "/cv.html", "destination": "/Protfolio/cv.html" },
     { "source": "/(.*)", "destination": "/Protfolio/$1" }
   ]
 }
